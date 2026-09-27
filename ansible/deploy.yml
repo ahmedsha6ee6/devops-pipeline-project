@@ -1,0 +1,38 @@
+---
+- name: Deploy CloudWorks Agency Web App
+  hosts: webservers
+  become: yes
+  vars:
+    docker_image: "cloudworks-agency-web"
+    docker_image_tag: "latest"
+    container_name: "cloudworks_web"
+    host_port: "8080"
+    container_port: "80"
+
+  tasks:
+    - name: Ensure Docker is installed and running
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Pull or load the latest Docker image
+      # In a real environment, you would push to a registry (Docker Hub/AWS ECR) 
+      # and pull it here. For local VM setups, it might be built locally.
+      debug:
+        msg: "Target image: {{ docker_image }}:{{ docker_image_tag }}"
+
+    - name: Stop existing container if running
+      docker_container:
+        name: "{{ container_name }}"
+        state: absent
+      ignore_errors: yes
+
+    - name: Run the new web container
+      docker_container:
+        name: "{{ container_name }}"
+        image: "{{ docker_image }}:{{ docker_image_tag }}"
+        state: started
+        restart_policy: always
+        ports:
+          - "{{ host_port }}:{{ container_port }}"
