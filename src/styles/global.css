@@ -1,0 +1,327 @@
+/* ============================================================
+   QuantumFrame Studio — Global Styles
+   ============================================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* --- CSS Custom Properties --- */
+:root {
+  /* Brand Colors */
+  --qf-primary: #12193C;
+  --qf-accent: #6C63FF;
+  --qf-accent2: #00D4AA;
+  --qf-surface: #0A0F1E;
+  --qf-text: #E8E8F0;
+  --qf-muted: #8892B0;
+  --qf-white: #FFFFFF;
+  --qf-dark: #080B16;
+
+  /* Glass & Borders */
+  --qf-glass: rgba(18, 25, 60, 0.7);
+  --qf-glass-strong: rgba(18, 25, 60, 0.9);
+  --qf-border: rgba(108, 99, 255, 0.2);
+  --qf-border-strong: rgba(108, 99, 255, 0.4);
+
+  /* Gradients */
+  --qf-gradient: linear-gradient(135deg, #6C63FF, #00D4AA);
+  --qf-gradient-r: linear-gradient(135deg, #00D4AA, #6C63FF);
+  --qf-gradient-text: linear-gradient(135deg, #6C63FF 0%, #00D4AA 100%);
+  --qf-gradient-bg: linear-gradient(180deg, #0A0F1E 0%, #12193C 50%, #0A0F1E 100%);
+  --qf-gradient-mesh: radial-gradient(ellipse at 20% 50%, rgba(108,99,255,0.08) 0%, transparent 50%),
+                      radial-gradient(ellipse at 80% 20%, rgba(0,212,170,0.06) 0%, transparent 50%),
+                      radial-gradient(ellipse at 50% 80%, rgba(108,99,255,0.04) 0%, transparent 50%);
+
+  /* Typography */
+  --qf-font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --qf-font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --qf-space-xs: 0.25rem;
+  --qf-space-sm: 0.5rem;
+  --qf-space-md: 1rem;
+  --qf-space-lg: 1.5rem;
+  --qf-space-xl: 2rem;
+  --qf-space-2xl: 3rem;
+  --qf-space-3xl: 4rem;
+  --qf-space-4xl: 6rem;
+  --qf-space-5xl: 8rem;
+
+  /* Container */
+  --qf-container: 1280px;
+  --qf-container-sm: 960px;
+  --qf-container-lg: 1440px;
+
+  /* Radius */
+  --qf-radius-sm: 6px;
+  --qf-radius-md: 12px;
+  --qf-radius-lg: 20px;
+  --qf-radius-xl: 30px;
+  --qf-radius-full: 9999px;
+
+  /* Shadows */
+  --qf-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  --qf-shadow-lg: 0 8px 60px rgba(0, 0, 0, 0.4);
+  --qf-shadow-glow: 0 0 40px rgba(108, 99, 255, 0.15);
+  --qf-shadow-glow2: 0 0 40px rgba(0, 212, 170, 0.15);
+
+  /* Transitions */
+  --qf-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --qf-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --qf-duration: 0.3s;
+  --qf-duration-slow: 0.6s;
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--qf-font-body);
+  color: var(--qf-text);
+  background-color: var(--qf-surface);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--qf-duration) var(--qf-ease);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--qf-font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* --- Utility Classes --- */
+.qf-container {
+  width: 100%;
+  max-width: var(--qf-container);
+  margin-inline: auto;
+  padding-inline: var(--qf-space-lg);
+}
+
+.qf-container--sm {
+  max-width: var(--qf-container-sm);
+}
+
+.qf-container--lg {
+  max-width: var(--qf-container-lg);
+}
+
+.qf-section {
+  padding-block: var(--qf-space-5xl);
+  position: relative;
+}
+
+.qf-gradient-text {
+  background: var(--qf-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.qf-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--qf-space-sm);
+  font-family: var(--qf-font-heading);
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--qf-accent);
+  margin-bottom: var(--qf-space-lg);
+}
+
+.qf-section-label::before {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background: var(--qf-gradient);
+  border-radius: 2px;
+}
+
+.qf-section-title {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  color: var(--qf-white);
+  margin-bottom: var(--qf-space-lg);
+}
+
+.qf-section-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--qf-muted);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+.qf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--qf-space-sm);
+  padding: 14px 32px;
+  border-radius: var(--qf-radius-full);
+  font-family: var(--qf-font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: all var(--qf-duration) var(--qf-ease);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.qf-btn--primary {
+  background: var(--qf-gradient);
+  color: var(--qf-white);
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.3);
+}
+
+.qf-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(108, 99, 255, 0.5);
+}
+
+.qf-btn--outline {
+  background: transparent;
+  color: var(--qf-text);
+  border: 1.5px solid var(--qf-border-strong);
+}
+
+.qf-btn--outline:hover {
+  border-color: var(--qf-accent);
+  background: rgba(108, 99, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.qf-glass-card {
+  background: var(--qf-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--qf-border);
+  border-radius: var(--qf-radius-lg);
+  transition: all var(--qf-duration) var(--qf-ease);
+}
+
+.qf-glass-card:hover {
+  border-color: var(--qf-border-strong);
+  box-shadow: var(--qf-shadow-glow);
+  transform: translateY(-4px);
+}
+
+/* --- Scroll Reveal --- */
+.qf-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--qf-ease), transform 0.8s var(--qf-ease);
+}
+
+.qf-reveal.qf-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.qf-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s var(--qf-ease), transform 0.8s var(--qf-ease);
+}
+
+.qf-reveal-left.qf-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.qf-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s var(--qf-ease), transform 0.8s var(--qf-ease);
+}
+
+.qf-reveal-right.qf-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Selection --- */
+::selection {
+  background: rgba(108, 99, 255, 0.3);
+  color: var(--qf-white);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--qf-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--qf-border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--qf-accent);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .qf-section {
+    padding-block: var(--qf-space-3xl);
+  }
+
+  .qf-container {
+    padding-inline: var(--qf-space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .qf-section {
+    padding-block: var(--qf-space-2xl);
+  }
+
+  .qf-btn {
+    padding: 12px 24px;
+    font-size: 0.875rem;
+  }
+}
