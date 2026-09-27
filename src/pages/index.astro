@@ -1,0 +1,724 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import RocketCursor from '../components/RocketCursor.astro';
+import '../styles/global.css';
+---
+
+<BaseLayout
+  title="CloudWorks Agency | Leading Web Development & Digital Marketing Agency in Tech City"
+  description="CloudWorks Agency - Tech City's premier web development and digital marketing agency. Expert website design, SEO services, social media marketing, AI video creation, e-commerce development. Proven results: 900% traffic growth, 425% conversion increases. Serving Global locations."
+>
+  <RocketCursor slot="cursor" />
+  <Navbar slot="navbar" />
+
+  <!-- ===== HERO ===== -->
+  <section class="hp-hero" id="hp-hero">
+    <div class="hp-hero__particles" aria-hidden="true">
+      <span class="hp-hero__particle"></span><span class="hp-hero__particle"></span>
+      <span class="hp-hero__particle"></span><span class="hp-hero__particle"></span>
+      <span class="hp-hero__particle"></span><span class="hp-hero__particle"></span>
+      <span class="hp-hero__particle"></span><span class="hp-hero__particle"></span>
+      <span class="hp-hero__particle"></span><span class="hp-hero__particle"></span>
+      <span class="hp-hero__particle"></span><span class="hp-hero__particle"></span>
+    </div>
+    <div class="hp-hero__glow" aria-hidden="true"></div>
+    <div class="qf-container hp-hero__content">
+      <span class="qf-section-label">Welcome to CloudWorks Agency</span>
+      <h1 class="hp-hero__title">We Build<br/><span class="qf-gradient-text">Digital Empires</span></h1>
+      <p class="hp-hero__subtitle">Transform Your Business with Cutting-Edge Web Development &amp; Digital Marketing</p>
+      <div class="hp-hero__typing">
+        <span class="hp-hero__typing-text"></span>
+        <span class="hp-hero__typing-cursor">|</span>
+      </div>
+      <div class="hp-hero__cta">
+        <a href="/contact" class="qf-btn qf-btn--primary">Start Your Project
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/portfolio" class="qf-btn qf-btn--outline">View Our Work</a>
+      </div>
+    </div>
+    <div class="hp-hero__scroll" aria-hidden="true">
+      <span class="hp-hero__scroll-text">Scroll</span>
+      <div class="hp-hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="qf-section hp-services" id="hp-services">
+    <div class="qf-container">
+      <div class="hp-services__header qf-reveal">
+        <span class="qf-section-label">What We Do</span>
+        <h2 class="qf-section-title">Comprehensive Digital Solutions</h2>
+        <p class="qf-section-subtitle">End-to-end digital services designed to accelerate your business growth.</p>
+      </div>
+      <div class="hp-services__grid">
+        <div class="hp-services__card qf-glass-card qf-reveal">
+          <div class="hp-services__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 class="hp-services__card-title">Web Development</h3>
+          <p class="hp-services__card-desc">Custom, high-performance websites built with modern technologies. Mobile-first and blazing fast.</p>
+        </div>
+        <div class="hp-services__card qf-glass-card qf-reveal">
+          <div class="hp-services__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+          </div>
+          <h3 class="hp-services__card-title">SEO Optimization</h3>
+          <p class="hp-services__card-desc">Dominate search results with data-driven SEO strategies that deliver sustainable organic growth.</p>
+        </div>
+        <div class="hp-services__card qf-glass-card qf-reveal">
+          <div class="hp-services__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+          </div>
+          <h3 class="hp-services__card-title">Social Media Marketing</h3>
+          <p class="hp-services__card-desc">Build a powerful brand presence across all major social platforms with strategic campaigns.</p>
+        </div>
+        <div class="hp-services__card qf-glass-card qf-reveal">
+          <div class="hp-services__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          </div>
+          <h3 class="hp-services__card-title">Video Production</h3>
+          <p class="hp-services__card-desc">High-impact video content that showcases your brand, products, and services in stunning detail.</p>
+        </div>
+        <div class="hp-services__card qf-glass-card hp-services__card--new qf-reveal">
+          <span class="hp-services__badge">NEW</span>
+          <div class="hp-services__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
+          </div>
+          <h3 class="hp-services__card-title">AI Video Creation</h3>
+          <p class="hp-services__card-desc">Leverage cutting-edge AI to create stunning marketing videos at scale. Rapid, dynamic, personalized.</p>
+        </div>
+        <div class="hp-services__card qf-glass-card qf-reveal">
+          <div class="hp-services__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 class="hp-services__card-title">Digital Marketing</h3>
+          <p class="hp-services__card-desc">Results-driven digital marketing campaigns that maximize your ROI across all channels.</p>
+        </div>
+      </div>
+      <div class="hp-services__more qf-reveal">
+        <a href="/services" class="qf-btn qf-btn--outline">Explore All Services
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="hp-stats" id="hp-stats">
+    <div class="qf-container">
+      <div class="hp-stats__grid">
+        <div class="hp-stats__item qf-reveal">
+          <span class="hp-stats__number qf-gradient-text" data-target="900">0</span>
+          <span class="hp-stats__suffix qf-gradient-text">%</span>
+          <span class="hp-stats__label">Traffic Growth</span>
+        </div>
+        <div class="hp-stats__item qf-reveal">
+          <span class="hp-stats__number qf-gradient-text" data-target="425">0</span>
+          <span class="hp-stats__suffix qf-gradient-text">%</span>
+          <span class="hp-stats__label">Conversion Increase</span>
+        </div>
+        <div class="hp-stats__item qf-reveal">
+          <span class="hp-stats__number qf-gradient-text" data-target="50">0</span>
+          <span class="hp-stats__suffix qf-gradient-text">+</span>
+          <span class="hp-stats__label">Projects Delivered</span>
+        </div>
+        <div class="hp-stats__item qf-reveal">
+          <span class="hp-stats__number qf-gradient-text" data-target="5">0</span>
+          <span class="hp-stats__suffix qf-gradient-text">+</span>
+          <span class="hp-stats__label">Years Experience</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section class="qf-section hp-process" id="hp-process">
+    <div class="qf-container">
+      <div class="hp-process__header qf-reveal">
+        <span class="qf-section-label">How We Work</span>
+        <h2 class="qf-section-title">Our Proven Process</h2>
+        <p class="qf-section-subtitle">A streamlined workflow that delivers exceptional results, every time.</p>
+      </div>
+      <div class="hp-process__timeline">
+        <div class="hp-process__line" aria-hidden="true"></div>
+        <div class="hp-process__step qf-reveal">
+          <div class="hp-process__step-num">01</div>
+          <div class="hp-process__step-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <h3 class="hp-process__step-title">Discovery</h3>
+          <p class="hp-process__step-desc">We deep-dive into your business, goals, audience, and competitive landscape.</p>
+        </div>
+        <div class="hp-process__step qf-reveal">
+          <div class="hp-process__step-num">02</div>
+          <div class="hp-process__step-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <h3 class="hp-process__step-title">Design</h3>
+          <p class="hp-process__step-desc">Crafting stunning visuals and intuitive user experiences aligned with your brand.</p>
+        </div>
+        <div class="hp-process__step qf-reveal">
+          <div class="hp-process__step-num">03</div>
+          <div class="hp-process__step-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+          </div>
+          <h3 class="hp-process__step-title">Development</h3>
+          <p class="hp-process__step-desc">Building robust, scalable, and high-performance solutions with clean code.</p>
+        </div>
+        <div class="hp-process__step qf-reveal">
+          <div class="hp-process__step-num">04</div>
+          <div class="hp-process__step-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          </div>
+          <h3 class="hp-process__step-title">Launch</h3>
+          <p class="hp-process__step-desc">Deploying with precision and providing ongoing support for continuous growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INDUSTRIES ===== -->
+  <section class="qf-section hp-industries" id="hp-industries">
+    <div class="qf-container">
+      <div class="hp-industries__header qf-reveal">
+        <span class="qf-section-label">Who We Serve</span>
+        <h2 class="qf-section-title">Empowering Every Industry</h2>
+        <p class="qf-section-subtitle">No matter your industry, we deliver tailored digital solutions that drive results.</p>
+      </div>
+      <div class="hp-industries__grid">
+        <div class="hp-industries__card qf-glass-card qf-reveal">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>
+          <h3>Real Estate</h3>
+          <p>Property platforms, virtual tours, and lead generation systems.</p>
+        </div>
+        <div class="hp-industries__card qf-glass-card qf-reveal">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          <h3>E-Commerce</h3>
+          <p>High-converting online stores with seamless checkout experiences.</p>
+        </div>
+        <div class="hp-industries__card qf-glass-card qf-reveal">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <h3>Healthcare</h3>
+          <p>Patient portals, telemedicine platforms, and medical practice websites.</p>
+        </div>
+        <div class="hp-industries__card qf-glass-card qf-reveal">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          <h3>Education</h3>
+          <p>E-learning platforms, school websites, and educational portals.</p>
+        </div>
+        <div class="hp-industries__card qf-glass-card qf-reveal">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <h3>Hospitality</h3>
+          <p>Restaurant websites, hotel booking systems, and tourism platforms.</p>
+        </div>
+        <div class="hp-industries__card qf-glass-card qf-reveal">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <h3>Startups</h3>
+          <p>MVP development, brand identity, and growth marketing for new ventures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="hp-cta" id="hp-cta">
+    <div class="hp-cta__glow" aria-hidden="true"></div>
+    <div class="qf-container hp-cta__content qf-reveal">
+      <h2 class="hp-cta__title">Ready to Transform Your<br/><span class="qf-gradient-text">Digital Presence?</span></h2>
+      <p class="hp-cta__subtitle">Let us help you build something extraordinary. Get a free consultation today.</p>
+      <a href="/contact" class="qf-btn qf-btn--primary hp-cta__btn">Get Free Consultation
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<!-- Counter Animation -->
+<script>
+  const counters = document.querySelectorAll('.hp-stats__number[data-target]');
+  let animated = false;
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated) {
+        animated = true;
+        counters.forEach(counter => {
+          const target = parseInt(counter.getAttribute('data-target') || '0');
+          const duration = 2000;
+          const start = performance.now();
+
+          function updateCounter(now: number) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            counter.textContent = Math.floor(eased * target).toString();
+            if (progress < 1) requestAnimationFrame(updateCounter);
+          }
+          requestAnimationFrame(updateCounter);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsSection = document.getElementById('hp-stats');
+  if (statsSection) statsObserver.observe(statsSection);
+</script>
+
+<!-- Typing Animation -->
+<script>
+  const words = ['For Startups', 'For Enterprises', 'For E-Commerce', 'For Every Business'];
+  const typingEl = document.querySelector('.hp-hero__typing-text');
+  let wordIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  function typeEffect() {
+    if (!typingEl) return;
+    const currentWord = words[wordIndex];
+
+    if (!deleting) {
+      typingEl.textContent = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === currentWord.length) {
+        deleting = true;
+        setTimeout(typeEffect, 1800);
+        return;
+      }
+      setTimeout(typeEffect, 80);
+    } else {
+      typingEl.textContent = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+      }
+      setTimeout(typeEffect, 40);
+    }
+  }
+
+  setTimeout(typeEffect, 1000);
+</script>
+
+<style>
+  /* ===== HERO ===== */
+  .hp-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--qf-surface);
+    background-image: var(--qf-gradient-mesh);
+  }
+
+  .hp-hero__glow {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.12), transparent 70%);
+    pointer-events: none;
+  }
+
+  .hp-hero__particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .hp-hero__particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(108,99,255,0.5);
+    border-radius: 50%;
+    animation: hp-float linear infinite;
+  }
+
+  .hp-hero__particle:nth-child(1) { left:10%; animation-duration:8s; animation-delay:0s; }
+  .hp-hero__particle:nth-child(2) { left:20%; animation-duration:10s; animation-delay:1s; width:2px; height:2px; background:rgba(0,212,170,0.4); }
+  .hp-hero__particle:nth-child(3) { left:30%; animation-duration:7s; animation-delay:2s; }
+  .hp-hero__particle:nth-child(4) { left:40%; animation-duration:9s; animation-delay:0.5s; width:4px; height:4px; }
+  .hp-hero__particle:nth-child(5) { left:55%; animation-duration:11s; animation-delay:1.5s; background:rgba(0,212,170,0.4); }
+  .hp-hero__particle:nth-child(6) { left:65%; animation-duration:8s; animation-delay:3s; width:2px; height:2px; }
+  .hp-hero__particle:nth-child(7) { left:75%; animation-duration:10s; animation-delay:2.5s; }
+  .hp-hero__particle:nth-child(8) { left:85%; animation-duration:7s; animation-delay:0s; background:rgba(0,212,170,0.4); }
+  .hp-hero__particle:nth-child(9) { left:15%; animation-duration:9s; animation-delay:4s; width:2px; height:2px; }
+  .hp-hero__particle:nth-child(10) { left:50%; animation-duration:12s; animation-delay:2s; }
+  .hp-hero__particle:nth-child(11) { left:70%; animation-duration:6s; animation-delay:1s; background:rgba(0,212,170,0.3); width:2px; height:2px; }
+  .hp-hero__particle:nth-child(12) { left:90%; animation-duration:10s; animation-delay:3.5s; }
+
+  @keyframes hp-float {
+    0% { transform: translateY(100vh) scale(0); opacity:0; }
+    10% { opacity:1; }
+    90% { opacity:1; }
+    100% { transform: translateY(-10vh) scale(1); opacity:0; }
+  }
+
+  .hp-hero__content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding-top: 6rem;
+  }
+
+  .hp-hero__title {
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-weight: 900;
+    color: var(--qf-white);
+    line-height: 1.05;
+    margin-bottom: var(--qf-space-lg);
+    letter-spacing: -0.03em;
+  }
+
+  .hp-hero__subtitle {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--qf-muted);
+    max-width: 640px;
+    margin-inline: auto;
+    margin-bottom: var(--qf-space-lg);
+    line-height: 1.7;
+  }
+
+  .hp-hero__typing {
+    font-family: var(--qf-font-heading);
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 600;
+    color: var(--qf-accent);
+    margin-bottom: var(--qf-space-2xl);
+    min-height: 2rem;
+  }
+
+  .hp-hero__typing-cursor {
+    animation: hp-blink 0.7s infinite;
+    color: var(--qf-accent2);
+  }
+
+  @keyframes hp-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .hp-hero__cta {
+    display: flex;
+    gap: var(--qf-space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hp-hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hp-hero__scroll-text {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--qf-muted);
+  }
+
+  .hp-hero__scroll-line {
+    width: 1px;
+    height: 40px;
+    background: var(--qf-gradient);
+    animation: hp-scroll-bounce 2s infinite;
+  }
+
+  @keyframes hp-scroll-bounce {
+    0%, 100% { transform: scaleY(0.4); transform-origin: top; opacity:0.3; }
+    50% { transform: scaleY(1); opacity:1; }
+  }
+
+  /* ===== SERVICES ===== */
+  .hp-services__header {
+    text-align: center;
+    margin-bottom: var(--qf-space-3xl);
+  }
+
+  .hp-services__header .qf-section-label { justify-content: center; }
+  .hp-services__header .qf-section-subtitle { margin-inline: auto; }
+
+  .hp-services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--qf-space-xl);
+  }
+
+  .hp-services__card {
+    padding: var(--qf-space-2xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hp-services__card--new {
+    border-color: rgba(0, 212, 170, 0.3);
+  }
+
+  .hp-services__badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.2rem 0.7rem;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    background: var(--qf-gradient);
+    border-radius: var(--qf-radius-full);
+    color: white;
+  }
+
+  .hp-services__icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(108,99,255,0.08);
+    border-radius: var(--qf-radius-md);
+    margin-bottom: var(--qf-space-lg);
+  }
+
+  .hp-services__card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--qf-white);
+    margin-bottom: var(--qf-space-sm);
+  }
+
+  .hp-services__card-desc {
+    font-size: 0.9rem;
+    color: var(--qf-muted);
+    line-height: 1.7;
+  }
+
+  .hp-services__more {
+    text-align: center;
+    margin-top: var(--qf-space-2xl);
+  }
+
+  /* ===== STATS ===== */
+  .hp-stats {
+    padding: var(--qf-space-4xl) 0;
+    background: var(--qf-primary);
+    border-top: 1px solid var(--qf-border);
+    border-bottom: 1px solid var(--qf-border);
+  }
+
+  .hp-stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--qf-space-xl);
+    text-align: center;
+  }
+
+  .hp-stats__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hp-stats__number {
+    font-family: var(--qf-font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .hp-stats__suffix {
+    font-family: var(--qf-font-heading);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1;
+    display: inline;
+  }
+
+  .hp-stats__label {
+    font-size: 0.9rem;
+    color: var(--qf-muted);
+    margin-top: var(--qf-space-sm);
+    font-weight: 500;
+  }
+
+  /* ===== PROCESS ===== */
+  .hp-process__header {
+    text-align: center;
+    margin-bottom: var(--qf-space-3xl);
+  }
+
+  .hp-process__header .qf-section-label { justify-content: center; }
+  .hp-process__header .qf-section-subtitle { margin-inline: auto; }
+
+  .hp-process__timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--qf-space-xl);
+    position: relative;
+  }
+
+  .hp-process__line {
+    position: absolute;
+    top: 65px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 2px;
+    background: var(--qf-gradient);
+    opacity: 0.3;
+  }
+
+  .hp-process__step {
+    text-align: center;
+    position: relative;
+  }
+
+  .hp-process__step-num {
+    font-family: var(--qf-font-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--qf-accent);
+    letter-spacing: 0.1em;
+    margin-bottom: var(--qf-space-sm);
+  }
+
+  .hp-process__step-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: auto;
+    margin-bottom: var(--qf-space-lg);
+    background: var(--qf-glass);
+    border: 1px solid var(--qf-border);
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hp-process__step-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--qf-white);
+    margin-bottom: var(--qf-space-sm);
+  }
+
+  .hp-process__step-desc {
+    font-size: 0.85rem;
+    color: var(--qf-muted);
+    line-height: 1.7;
+  }
+
+  /* ===== INDUSTRIES ===== */
+  .hp-industries__header {
+    text-align: center;
+    margin-bottom: var(--qf-space-3xl);
+  }
+
+  .hp-industries__header .qf-section-label { justify-content: center; }
+  .hp-industries__header .qf-section-subtitle { margin-inline: auto; }
+
+  .hp-industries__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--qf-space-xl);
+  }
+
+  .hp-industries__card {
+    padding: var(--qf-space-xl);
+    text-align: center;
+  }
+
+  .hp-industries__card svg {
+    margin-inline: auto;
+    margin-bottom: var(--qf-space-md);
+  }
+
+  .hp-industries__card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--qf-white);
+    margin-bottom: var(--qf-space-xs);
+  }
+
+  .hp-industries__card p {
+    font-size: 0.85rem;
+    color: var(--qf-muted);
+    line-height: 1.6;
+  }
+
+  /* ===== CTA ===== */
+  .hp-cta {
+    position: relative;
+    padding: var(--qf-space-5xl) 0;
+    background: var(--qf-primary);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .hp-cta__glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.1), transparent 70%);
+    pointer-events: none;
+  }
+
+  .hp-cta__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hp-cta__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--qf-white);
+    margin-bottom: var(--qf-space-md);
+  }
+
+  .hp-cta__subtitle {
+    font-size: 1.1rem;
+    color: var(--qf-muted);
+    margin-bottom: var(--qf-space-2xl);
+    max-width: 500px;
+    margin-inline: auto;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .hp-services__grid { grid-template-columns: repeat(2, 1fr); }
+    .hp-process__timeline { grid-template-columns: repeat(2, 1fr); gap: var(--qf-space-2xl); }
+    .hp-process__line { display: none; }
+    .hp-industries__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .hp-stats__grid { grid-template-columns: repeat(2, 1fr); gap: var(--qf-space-2xl); }
+    .hp-hero__content { padding-top: 5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hp-services__grid { grid-template-columns: 1fr; }
+    .hp-process__timeline { grid-template-columns: 1fr; }
+    .hp-stats__grid { grid-template-columns: repeat(2, 1fr); }
+    .hp-industries__grid { grid-template-columns: 1fr; }
+    .hp-hero__title { font-size: 2.2rem; }
+  }
+</style>

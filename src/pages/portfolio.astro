@@ -1,0 +1,398 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import RocketCursor from '../components/RocketCursor.astro';
+import '../styles/global.css';
+
+const projects = [
+  { title: 'Luxury Real Estate Platform', category: 'web', tag: 'Web Development', desc: 'A premium property listing website with advanced search, virtual tours, and lead generation system.', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
+  { title: 'E-Commerce Growth Campaign', category: 'marketing', tag: 'Digital Marketing', desc: 'Comprehensive SEO & PPC strategy that drove 900% organic traffic growth for an e-commerce brand.', gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' },
+  { title: 'Architecture Firm Branding', category: 'branding', tag: 'Branding', desc: 'Complete brand identity overhaul including logo, website, and marketing collateral for a leading architecture firm.', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' },
+  { title: 'Restaurant Chain Website', category: 'web', tag: 'Web Development', desc: 'Multi-location restaurant website with online ordering, reservation system, and loyalty program integration.', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)' },
+  { title: 'Interior Design Showcase', category: 'video', tag: 'Video & Content', desc: 'Cinematic video production and content strategy for a premium interior design studio.', gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)' },
+  { title: 'Healthcare Portal', category: 'web', tag: 'Web Development', desc: 'Patient-facing healthcare portal with appointment scheduling, telemedicine, and medical records management.', gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)' },
+];
+
+const cases = [
+  {
+    title: 'E-Commerce Traffic Transformation',
+    challenge: 'Low organic visibility with less than 500 monthly visitors.',
+    solution: 'Comprehensive SEO overhaul, content strategy, and technical optimization.',
+    metrics: [
+      { value: '900%', label: 'Traffic Growth' },
+      { value: '425%', label: 'Conversion Increase' },
+      { value: '3x', label: 'Revenue Growth' },
+    ],
+  },
+  {
+    title: 'Brand Digital Transformation',
+    challenge: 'Outdated web presence with poor mobile experience.',
+    solution: 'Complete website redesign, social media strategy, and digital marketing campaign.',
+    metrics: [
+      { value: '200%', label: 'Lead Increase' },
+      { value: '60%', label: 'Bounce Rate Reduction' },
+      { value: '5x', label: 'Social Engagement' },
+    ],
+  },
+];
+
+const logos = ['TechCorp', 'BuildPro', 'DesignHub', 'MediCare', 'EduFirst', 'FoodChain', 'AutoPrime', 'StyleCraft'];
+---
+
+<BaseLayout
+  title="Portfolio | CloudWorks Agency - Web Development & Digital Marketing Projects"
+  description="Explore CloudWorks Agency's portfolio of successful web development, digital marketing, and branding projects. See how we've helped businesses across Tech City, India achieve 900% traffic growth and 425% conversion increases."
+>
+  <RocketCursor slot="cursor" />
+  <Navbar slot="navbar" />
+
+  <!-- ===== HERO ===== -->
+  <section class="pf-hero" id="pf-hero">
+    <div class="pf-hero__glow" aria-hidden="true"></div>
+    <div class="qf-container pf-hero__content qf-reveal">
+      <span class="qf-section-label">Our Work</span>
+      <h1 class="pf-hero__title">Our Work Speaks<br/><span class="qf-gradient-text">for Itself</span></h1>
+      <p class="pf-hero__subtitle">Real projects. Real results. See how we've transformed businesses across India.</p>
+    </div>
+  </section>
+
+  <!-- ===== FILTERS ===== -->
+  <section class="pf-filters" id="pf-filters">
+    <div class="qf-container">
+      <div class="pf-filters__bar">
+        <button class="pf-filters__btn pf-filters__btn--active" data-filter="all">All</button>
+        <button class="pf-filters__btn" data-filter="web">Web Development</button>
+        <button class="pf-filters__btn" data-filter="marketing">Digital Marketing</button>
+        <button class="pf-filters__btn" data-filter="video">Video & Content</button>
+        <button class="pf-filters__btn" data-filter="branding">Branding</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO GRID ===== -->
+  <section class="qf-section pf-grid-section" id="pf-grid">
+    <div class="qf-container">
+      <div class="pf-grid">
+        {projects.map((project) => (
+          <div class="pf-card qf-reveal" data-category={project.category}>
+            <div class="pf-card__image" style={`background: ${project.gradient}`}>
+              <div class="pf-card__overlay">
+                <span class="pf-card__overlay-text">View Details</span>
+              </div>
+            </div>
+            <div class="pf-card__body">
+              <span class="pf-card__tag">{project.tag}</span>
+              <h3 class="pf-card__title">{project.title}</h3>
+              <p class="pf-card__desc">{project.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CASE STUDIES ===== -->
+  <section class="qf-section pf-cases" id="pf-cases">
+    <div class="qf-container">
+      <div class="pf-cases__header qf-reveal">
+        <span class="qf-section-label">Case Studies</span>
+        <h2 class="qf-section-title">Measurable Impact</h2>
+      </div>
+      <div class="pf-cases__grid">
+        {cases.map((cs) => (
+          <div class="pf-case qf-glass-card qf-reveal">
+            <h3 class="pf-case__title">{cs.title}</h3>
+            <div class="pf-case__section">
+              <span class="pf-case__label">Challenge</span>
+              <p class="pf-case__text">{cs.challenge}</p>
+            </div>
+            <div class="pf-case__section">
+              <span class="pf-case__label">Solution</span>
+              <p class="pf-case__text">{cs.solution}</p>
+            </div>
+            <div class="pf-case__metrics">
+              {cs.metrics.map((m) => (
+                <div class="pf-case__metric">
+                  <span class="pf-case__metric-value qf-gradient-text">{m.value}</span>
+                  <span class="pf-case__metric-label">{m.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CLIENT TRUST ===== -->
+  <section class="pf-trust" id="pf-trust">
+    <div class="qf-container">
+      <div class="pf-trust__header qf-reveal">
+        <span class="qf-section-label">Trusted By</span>
+        <h2 class="qf-section-title">Businesses That Trust Us</h2>
+      </div>
+    </div>
+    <div class="pf-trust__marquee" aria-hidden="true">
+      <div class="pf-trust__track">
+        {[...logos, ...logos].map((logo) => (
+          <div class="pf-trust__logo">{logo}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="pf-cta" id="pf-cta">
+    <div class="pf-cta__glow" aria-hidden="true"></div>
+    <div class="qf-container pf-cta__content qf-reveal">
+      <h2 class="pf-cta__title">Ready to Start Your <span class="qf-gradient-text">Project?</span></h2>
+      <p class="pf-cta__subtitle">Join the growing list of businesses we've helped succeed online.</p>
+      <a href="/contact" class="qf-btn qf-btn--primary">Start Your Project
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<!-- Filter Script -->
+<script>
+  const filterBtns = document.querySelectorAll('.pf-filters__btn');
+  const cards = document.querySelectorAll('.pf-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('pf-filters__btn--active'));
+      btn.classList.add('pf-filters__btn--active');
+
+      const filter = btn.getAttribute('data-filter');
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          (card as HTMLElement).style.display = '';
+          (card as HTMLElement).style.opacity = '1';
+          (card as HTMLElement).style.transform = 'scale(1)';
+        } else {
+          (card as HTMLElement).style.opacity = '0';
+          (card as HTMLElement).style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            (card as HTMLElement).style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* ===== HERO ===== */
+  .pf-hero {
+    position: relative; min-height: 60vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; background: var(--qf-surface);
+    background-image: var(--qf-gradient-mesh); padding-top: 5rem;
+  }
+  .pf-hero__glow {
+    position: absolute; top: 30%; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 350px;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.1), transparent 70%);
+    pointer-events: none;
+  }
+  .pf-hero__content { text-align: center; position: relative; z-index: 2; }
+  .pf-hero__title {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900; color: var(--qf-white);
+    margin-bottom: var(--qf-space-lg); line-height: 1.1;
+  }
+  .pf-hero__subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    color: var(--qf-muted); max-width: 580px;
+    margin-inline: auto; line-height: 1.8;
+  }
+
+  /* ===== FILTERS ===== */
+  .pf-filters { padding-block: var(--qf-space-xl); }
+  .pf-filters__bar {
+    display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; padding-bottom: 0.5rem;
+  }
+  .pf-filters__bar::-webkit-scrollbar { display: none; }
+  .pf-filters__btn {
+    padding: 0.6rem 1.4rem;
+    font-family: var(--qf-font-heading);
+    font-size: 0.85rem; font-weight: 600;
+    color: var(--qf-muted);
+    background: var(--qf-glass);
+    border: 1px solid var(--qf-border);
+    border-radius: var(--qf-radius-full);
+    transition: all var(--qf-duration) var(--qf-ease);
+    white-space: nowrap;
+  }
+  .pf-filters__btn:hover { color: var(--qf-white); border-color: var(--qf-accent); }
+  .pf-filters__btn--active {
+    background: var(--qf-gradient); color: var(--qf-white);
+    border-color: transparent;
+  }
+
+  /* ===== PORTFOLIO GRID ===== */
+  .pf-grid-section { padding-top: var(--qf-space-xl); }
+  .pf-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--qf-space-xl);
+  }
+  .pf-card {
+    border-radius: var(--qf-radius-lg);
+    overflow: hidden;
+    background: var(--qf-glass);
+    border: 1px solid var(--qf-border);
+    transition: all 0.4s var(--qf-ease);
+  }
+  .pf-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--qf-border-strong);
+    box-shadow: var(--qf-shadow-glow);
+  }
+  .pf-card__image {
+    height: 220px;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .pf-card__overlay {
+    position: absolute; inset: 0;
+    background: rgba(10,15,30,0.7);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s var(--qf-ease);
+  }
+  .pf-card:hover .pf-card__overlay { opacity: 1; }
+  .pf-card__overlay-text {
+    font-family: var(--qf-font-heading);
+    font-weight: 600; font-size: 0.9rem;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--qf-accent);
+    border-radius: var(--qf-radius-full);
+    color: var(--qf-accent);
+  }
+  .pf-card__body { padding: var(--qf-space-xl); }
+  .pf-card__tag {
+    display: inline-block;
+    font-size: 0.7rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--qf-accent); margin-bottom: 0.5rem;
+  }
+  .pf-card__title {
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--qf-white); margin-bottom: 0.5rem;
+  }
+  .pf-card__desc {
+    font-size: 0.85rem; color: var(--qf-muted);
+    line-height: 1.7;
+  }
+
+  /* ===== CASE STUDIES ===== */
+  .pf-cases__header { text-align: center; margin-bottom: var(--qf-space-3xl); }
+  .pf-cases__header .qf-section-label { justify-content: center; }
+  .pf-cases__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--qf-space-xl);
+  }
+  .pf-case { padding: var(--qf-space-2xl); }
+  .pf-case__title {
+    font-size: 1.3rem; font-weight: 800;
+    color: var(--qf-white); margin-bottom: var(--qf-space-xl);
+  }
+  .pf-case__section { margin-bottom: var(--qf-space-lg); }
+  .pf-case__label {
+    display: block; font-size: 0.7rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--qf-accent); margin-bottom: 0.3rem;
+  }
+  .pf-case__text { font-size: 0.9rem; color: var(--qf-muted); line-height: 1.7; }
+  .pf-case__metrics {
+    display: flex; gap: var(--qf-space-xl);
+    padding-top: var(--qf-space-lg);
+    border-top: 1px solid var(--qf-border);
+  }
+  .pf-case__metric { text-align: center; }
+  .pf-case__metric-value {
+    font-family: var(--qf-font-heading);
+    font-size: 1.8rem; font-weight: 900;
+    display: block;
+  }
+  .pf-case__metric-label {
+    font-size: 0.75rem; color: var(--qf-muted);
+    font-weight: 500;
+  }
+
+  /* ===== TRUST ===== */
+  .pf-trust {
+    padding-block: var(--qf-space-4xl);
+    overflow: hidden;
+  }
+  .pf-trust__header { text-align: center; margin-bottom: var(--qf-space-2xl); }
+  .pf-trust__header .qf-section-label { justify-content: center; }
+  .pf-trust__marquee { overflow: hidden; }
+  .pf-trust__track {
+    display: flex;
+    animation: pf-marquee 25s linear infinite;
+    width: max-content;
+  }
+  @keyframes pf-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .pf-trust__logo {
+    flex-shrink: 0;
+    padding: 0.8rem 2.5rem;
+    margin: 0 1rem;
+    font-family: var(--qf-font-heading);
+    font-size: 1rem; font-weight: 700;
+    color: var(--qf-muted);
+    background: var(--qf-glass);
+    border: 1px solid var(--qf-border);
+    border-radius: var(--qf-radius-md);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+
+  /* ===== CTA ===== */
+  .pf-cta {
+    position: relative; padding: var(--qf-space-5xl) 0;
+    background: var(--qf-primary); text-align: center; overflow: hidden;
+  }
+  .pf-cta__glow {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.1), transparent 70%);
+    pointer-events: none;
+  }
+  .pf-cta__content { position: relative; z-index: 2; }
+  .pf-cta__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800; color: var(--qf-white);
+    margin-bottom: var(--qf-space-md);
+  }
+  .pf-cta__subtitle {
+    font-size: 1.1rem; color: var(--qf-muted);
+    margin-bottom: var(--qf-space-2xl);
+    max-width: 500px; margin-inline: auto;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .pf-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .pf-cases__grid { grid-template-columns: 1fr; }
+    .pf-filters__bar { justify-content: flex-start; }
+  }
+  @media (max-width: 480px) {
+    .pf-grid { grid-template-columns: 1fr; }
+    .pf-case__metrics { flex-direction: column; gap: var(--qf-space-md); }
+  }
+</style>

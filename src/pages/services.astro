@@ -1,0 +1,312 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import RocketCursor from '../components/RocketCursor.astro';
+import '../styles/global.css';
+
+const services = [
+  {
+    title: 'Web Design & Development',
+    desc: 'Custom, high-performance websites built with modern technologies. Mobile-first, blazing-fast, and designed to convert.',
+    features: ['Custom WordPress & React Development', 'Mobile-Responsive Design', 'E-commerce Solutions', 'Performance Optimization', 'CMS Integration'],
+    icon: '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+    isNew: false,
+  },
+  {
+    title: 'SEO Optimization',
+    desc: 'Dominate search results with data-driven SEO strategies that deliver sustainable organic growth.',
+    features: ['Keyword Research & Strategy', 'On-Page & Technical SEO', 'Content Optimization', 'Local SEO for Tech City & MP', 'Monthly Performance Reports'],
+    icon: '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>',
+    isNew: false,
+  },
+  {
+    title: 'Social Media Management',
+    desc: 'Build a powerful brand presence across all major social platforms with engaging content and strategic campaigns.',
+    features: ['Content Calendar & Strategy', 'Platform Management', 'Community Engagement', 'Influencer Partnerships', 'Analytics & Reporting'],
+    icon: '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>',
+    isNew: false,
+  },
+  {
+    title: 'Content Creation',
+    desc: 'SEO-optimized, conversion-focused content that tells your brand story and drives measurable results.',
+    features: ['Blog & Article Writing', 'Copywriting', 'Brand Storytelling', 'Infographic Design', 'Content Strategy'],
+    icon: '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>',
+    isNew: false,
+  },
+  {
+    title: 'Video Production',
+    desc: 'High-impact video content that showcases your brand, products, and services in stunning detail.',
+    features: ['Brand Videos', 'Product Showcases', 'Social Media Reels', 'Motion Graphics', 'Video Editing'],
+    icon: '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>',
+    isNew: false,
+  },
+  {
+    title: 'AI Video Creation',
+    desc: 'Leverage cutting-edge AI to create stunning marketing videos at scale. Perfect for product demos, social content, and brand storytelling.',
+    features: ['AI-Powered Video Generation', 'Automated Script-to-Video', 'Dynamic Personalization', 'Multi-Language Support', 'Rapid Turnaround'],
+    icon: '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>',
+    isNew: true,
+  },
+  {
+    title: 'Digital Marketing',
+    desc: 'Results-driven digital marketing campaigns that maximize your ROI across all channels.',
+    features: ['PPC Advertising', 'Facebook & Instagram Ads', 'Google Ads Management', 'Email Marketing', 'Conversion Optimization'],
+    icon: '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+    isNew: false,
+  },
+  {
+    title: 'Mobile App Development',
+    desc: 'Native and cross-platform mobile applications that deliver seamless user experiences.',
+    features: ['iOS & Android Development', 'Cross-Platform Solutions', 'UI/UX Design', 'App Store Optimization', 'Ongoing Maintenance'],
+    icon: '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>',
+    isNew: false,
+  },
+  {
+    title: 'AI-Powered Solutions',
+    desc: 'Harness the power of artificial intelligence to automate, optimize, and scale your business operations.',
+    features: ['AI Chatbots', 'Smart Analytics', 'Predictive Marketing', 'Automation Workflows', 'Machine Learning Integration'],
+    icon: '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M12 2a4 4 0 014 4c0 1.95-1.4 3.58-3.25 3.93V12h3.75a2.5 2.5 0 012.5 2.5V16a3 3 0 11-2 0v-1.5a.5.5 0 00-.5-.5h-9a.5.5 0 00-.5.5V16a3 3 0 11-2 0v-1.5A2.5 2.5 0 017.5 12h3.75V9.93A4.002 4.002 0 018 6a4 4 0 014-4z"/></svg>',
+    isNew: true,
+  },
+  {
+    title: 'Voice Search Optimization',
+    desc: 'Future-proof your digital presence with optimization for the rapidly growing voice search ecosystem.',
+    features: ['Voice Query Optimization', 'Featured Snippet Targeting', 'Conversational Content', 'Schema Markup', 'Local Voice Search'],
+    icon: '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>',
+    isNew: true,
+  },
+];
+---
+
+<BaseLayout
+  title="Digital Marketing & Web Development Services | CloudWorks Agency Tech City"
+  description="Comprehensive digital services: web development, SEO optimization, social media marketing, AI video creation, mobile app development. Marketing agency for architects, interior designers & all businesses. Results-driven solutions from Tech City's top digital agency."
+>
+  <RocketCursor slot="cursor" />
+  <Navbar slot="navbar" />
+
+  <!-- ===== HERO ===== -->
+  <section class="sv-hero" id="sv-hero">
+    <div class="sv-hero__glow" aria-hidden="true"></div>
+    <div class="qf-container sv-hero__content qf-reveal">
+      <span class="qf-section-label">Our Services</span>
+      <h1 class="sv-hero__title">Comprehensive<br/><span class="qf-gradient-text">Digital Solutions</span></h1>
+      <p class="sv-hero__subtitle">From stunning websites to AI-powered marketing—everything your business needs to dominate the digital landscape.</p>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES GRID ===== -->
+  <section class="qf-section sv-grid" id="sv-grid">
+    <div class="qf-container">
+      {services.map((service, i) => (
+        <div class:list={['sv-block qf-glass-card qf-reveal', { 'sv-block--reversed': i % 2 === 1, 'sv-block--new': service.isNew }]}>
+          {service.isNew && <span class="sv-block__badge">NEW</span>}
+          <div class="sv-block__icon-area">
+            <div class="sv-block__icon" set:html={service.icon} />
+            <div class="sv-block__icon-glow" aria-hidden="true"></div>
+          </div>
+          <div class="sv-block__content">
+            <h2 class="sv-block__title">{service.title}</h2>
+            <p class="sv-block__desc">{service.desc}</p>
+            <ul class="sv-block__features">
+              {service.features.map((f) => (
+                <li class="sv-block__feature">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a href="/contact" class="qf-btn qf-btn--outline sv-block__cta">Get Started
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===== PRICING CTA ===== -->
+  <section class="sv-pricing" id="sv-pricing">
+    <div class="sv-pricing__glow" aria-hidden="true"></div>
+    <div class="qf-container sv-pricing__content qf-reveal">
+      <h2 class="sv-pricing__title">Every Project is <span class="qf-gradient-text">Unique</span></h2>
+      <p class="sv-pricing__subtitle">We craft custom solutions tailored to your goals and budget. Get a personalized quote today.</p>
+      <a href="/contact" class="qf-btn qf-btn--primary">Get a Custom Quote
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  /* ===== HERO ===== */
+  .sv-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--qf-surface);
+    background-image: var(--qf-gradient-mesh);
+    padding-top: 5rem;
+  }
+
+  .sv-hero__glow {
+    position: absolute; top: 30%; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 350px;
+    background: radial-gradient(ellipse, rgba(0,212,170,0.08), transparent 70%);
+    pointer-events: none;
+  }
+
+  .sv-hero__content { text-align: center; position: relative; z-index: 2; }
+
+  .sv-hero__title {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900; color: var(--qf-white);
+    margin-bottom: var(--qf-space-lg); line-height: 1.1;
+  }
+
+  .sv-hero__subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    color: var(--qf-muted); max-width: 620px;
+    margin-inline: auto; line-height: 1.8;
+  }
+
+  /* ===== SERVICE BLOCKS ===== */
+  .sv-block {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--qf-space-2xl);
+    padding: var(--qf-space-2xl) var(--qf-space-3xl);
+    margin-bottom: var(--qf-space-xl);
+    align-items: start;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sv-block--reversed {
+    direction: rtl;
+  }
+
+  .sv-block--reversed > * {
+    direction: ltr;
+  }
+
+  .sv-block--new {
+    border-color: rgba(0, 212, 170, 0.3);
+  }
+
+  .sv-block__badge {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.65rem; font-weight: 800;
+    letter-spacing: 0.1em;
+    background: var(--qf-gradient);
+    border-radius: var(--qf-radius-full);
+    color: white;
+    z-index: 2;
+  }
+
+  .sv-block__icon-area {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: var(--qf-space-md);
+    position: relative;
+  }
+
+  .sv-block__icon {
+    width: 72px; height: 72px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(108,99,255,0.08);
+    border: 1px solid var(--qf-border);
+    border-radius: var(--qf-radius-lg);
+    position: relative; z-index: 2;
+  }
+
+  .sv-block__icon-glow {
+    position: absolute;
+    width: 100px; height: 100px;
+    background: radial-gradient(circle, rgba(108,99,255,0.12), transparent);
+    border-radius: 50%;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+  }
+
+  .sv-block__title {
+    font-size: 1.4rem; font-weight: 800;
+    color: var(--qf-white); margin-bottom: var(--qf-space-sm);
+  }
+
+  .sv-block__desc {
+    font-size: 0.95rem; color: var(--qf-muted);
+    line-height: 1.8; margin-bottom: var(--qf-space-lg);
+  }
+
+  .sv-block__features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-bottom: var(--qf-space-xl);
+  }
+
+  .sv-block__feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--qf-text);
+  }
+
+  .sv-block__feature svg { flex-shrink: 0; }
+
+  .sv-block__cta {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+  }
+
+  /* ===== PRICING CTA ===== */
+  .sv-pricing {
+    position: relative;
+    padding: var(--qf-space-5xl) 0;
+    background: var(--qf-primary);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .sv-pricing__glow {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.1), transparent 70%);
+    pointer-events: none;
+  }
+
+  .sv-pricing__content { position: relative; z-index: 2; }
+
+  .sv-pricing__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800; color: var(--qf-white);
+    margin-bottom: var(--qf-space-md);
+  }
+
+  .sv-pricing__subtitle {
+    font-size: 1.1rem; color: var(--qf-muted);
+    max-width: 520px; margin-inline: auto;
+    margin-bottom: var(--qf-space-2xl);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .sv-block {
+      grid-template-columns: 1fr;
+      padding: var(--qf-space-xl);
+    }
+    .sv-block--reversed { direction: ltr; }
+    .sv-block__icon-area { justify-content: flex-start; }
+    .sv-block__features { grid-template-columns: 1fr; }
+  }
+</style>

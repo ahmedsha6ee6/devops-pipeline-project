@@ -1,0 +1,461 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import RocketCursor from '../components/RocketCursor.astro';
+import '../styles/global.css';
+
+const team = [
+  { name: 'Ahmed Shabeeb', role: 'Chief Architect & Founder', initials: 'AS', desc: 'Leads the technical vision and ensures operational excellence across all projects.', color: 'var(--qf-accent)' },
+  { name: 'John Doe', role: 'Operations & Project Management', initials: 'JD', desc: 'The strategic backbone—keeps every project on track and every client delighted.', color: 'var(--qf-accent2)' },
+  { name: 'Jane Smith', role: 'Director, Visual Storytelling', initials: 'JS', desc: 'Transforms brand narratives into stunning visual experiences that captivate audiences.', color: 'var(--qf-accent)' },
+  { name: 'Alex Johnson', role: 'Creator, Social Creativity & Content', initials: 'AJ', desc: 'Crafts compelling content strategies that drive engagement and build brand authority.', color: 'var(--qf-accent2)' },
+];
+
+const values = [
+  { title: 'Innovation', desc: 'We stay ahead of trends, leveraging AI and emerging technologies to deliver cutting-edge solutions.', icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>' },
+  { title: 'Results-Driven', desc: 'Every strategy is backed by data. We measure, optimize, and deliver tangible business outcomes.', icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>' },
+  { title: 'Client-First', desc: 'Your goals are our goals. We build lasting partnerships based on transparency and trust.', icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>' },
+  { title: 'Excellence', desc: 'From code quality to design aesthetics, we never compromise on the standard of our deliverables.', icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>' },
+];
+
+const whyUs = [
+  { title: 'Proven Results', desc: '900% traffic growth and 425% conversion increases speak for themselves.' },
+  { title: 'Full-Service Agency', desc: 'From web development to AI video creation, everything under one roof.' },
+  { title: 'Local Expertise, Global Standards', desc: 'Based in Tech City, delivering world-class quality across India.' },
+  { title: 'Dedicated Support', desc: 'Ongoing maintenance, reporting, and optimization long after launch.' },
+];
+
+const locations = [
+  { name: 'Tech City', tag: 'HQ', desc: 'Our headquarters and primary operations center.' },
+  { name: 'Indore', tag: '', desc: 'Serving the commercial capital of Madhya Pradesh.' },
+  { name: 'Jabalpur', tag: '', desc: 'Digital solutions for Central India businesses.' },
+  { name: 'Gwalior', tag: '', desc: 'Expanding our reach across Northern MP.' },
+  { name: 'Pan-India', tag: 'Remote', desc: 'Serving clients nationwide with remote collaboration.' },
+];
+---
+
+<BaseLayout
+  title="About CloudWorks Agency | Premier Digital Marketing Agency in Tech City, MP"
+  description="Learn about CloudWorks Agency - Tech City's leading web development and digital marketing agency. Meet our expert team of developers, designers, and strategists delivering 900% traffic growth for businesses across India."
+>
+  <RocketCursor slot="cursor" />
+  <Navbar slot="navbar" />
+
+  <!-- ===== HERO ===== -->
+  <section class="ab-hero" id="ab-hero">
+    <div class="ab-hero__glow" aria-hidden="true"></div>
+    <div class="qf-container ab-hero__content qf-reveal">
+      <span class="qf-section-label">About Us</span>
+      <h1 class="ab-hero__title">The Minds Behind Your<br/><span class="qf-gradient-text">Digital Growth</span></h1>
+      <p class="ab-hero__subtitle">We are a team of passionate developers, designers, and strategists dedicated to transforming businesses through innovative digital solutions.</p>
+    </div>
+  </section>
+
+  <!-- ===== OUR STORY ===== -->
+  <section class="qf-section ab-story" id="ab-story">
+    <div class="qf-container">
+      <div class="ab-story__grid">
+        <div class="ab-story__text qf-reveal-left">
+          <span class="qf-section-label">Our Journey</span>
+          <h2 class="qf-section-title">Our Story</h2>
+          <p class="ab-story__para">Founded in Tech City, CloudWorks Agency began with a vision to bridge the gap between businesses and their digital potential. What started as a small team of passionate developers has grown into a full-service digital agency serving clients across India.</p>
+          <p class="ab-story__para">We believe every business deserves a powerful digital presence. From local startups in Tech City to enterprises in Indore, Jabalpur, and beyond—we have been the catalyst for digital transformation, delivering measurable results that drive real business growth.</p>
+          <div class="ab-story__highlight qf-glass-card">
+            <span class="ab-story__highlight-num qf-gradient-text">900%</span>
+            <span class="ab-story__highlight-text">Average Traffic Growth for Our Clients</span>
+          </div>
+        </div>
+        <div class="ab-story__visual qf-reveal-right" aria-hidden="true">
+          <div class="ab-story__shape ab-story__shape--1"></div>
+          <div class="ab-story__shape ab-story__shape--2"></div>
+          <div class="ab-story__shape ab-story__shape--3"></div>
+          <div class="ab-story__shape ab-story__shape--4"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VALUES ===== -->
+  <section class="qf-section ab-values" id="ab-values">
+    <div class="qf-container">
+      <div class="ab-values__header qf-reveal">
+        <span class="qf-section-label">What Drives Us</span>
+        <h2 class="qf-section-title">Our Core Values</h2>
+      </div>
+      <div class="ab-values__grid">
+        {values.map((v) => (
+          <div class="ab-values__card qf-glass-card qf-reveal">
+            <div class="ab-values__icon" set:html={v.icon} />
+            <h3 class="ab-values__card-title">{v.title}</h3>
+            <p class="ab-values__card-desc">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM ===== -->
+  <section class="qf-section ab-team" id="ab-team">
+    <div class="qf-container">
+      <div class="ab-team__header qf-reveal">
+        <span class="qf-section-label">Our Team</span>
+        <h2 class="qf-section-title">Meet the Visionaries</h2>
+        <p class="qf-section-subtitle">The talented individuals behind CloudWorks Agency's success.</p>
+      </div>
+      <div class="ab-team__grid">
+        {team.map((member) => (
+          <div class="ab-team__card qf-glass-card qf-reveal">
+            <div class="ab-team__avatar" style={`--avatar-color: ${member.color}`}>
+              <span class="ab-team__initials">{member.initials}</span>
+            </div>
+            <h3 class="ab-team__name">{member.name}</h3>
+            <span class="ab-team__role">{member.role}</span>
+            <p class="ab-team__desc">{member.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="qf-section ab-why" id="ab-why">
+    <div class="qf-container">
+      <div class="ab-why__header qf-reveal">
+        <span class="qf-section-label">Why CloudWorks</span>
+        <h2 class="qf-section-title">Why Businesses Choose Us</h2>
+      </div>
+      <div class="ab-why__list">
+        {whyUs.map((item, i) => (
+          <div class="ab-why__item qf-reveal">
+            <div class="ab-why__num">{`0${i + 1}`}</div>
+            <div class="ab-why__content">
+              <h3 class="ab-why__item-title">{item.title}</h3>
+              <p class="ab-why__item-desc">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCATIONS ===== -->
+  <section class="qf-section ab-locations" id="ab-locations">
+    <div class="qf-container">
+      <div class="ab-locations__header qf-reveal">
+        <span class="qf-section-label">Where We Serve</span>
+        <h2 class="qf-section-title">Serving Businesses Across India</h2>
+      </div>
+      <div class="ab-locations__grid">
+        {locations.map((loc) => (
+          <div class="ab-locations__card qf-glass-card qf-reveal">
+            <div class="ab-locations__card-top">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <h3 class="ab-locations__name">{loc.name}</h3>
+              {loc.tag && <span class="ab-locations__tag">{loc.tag}</span>}
+            </div>
+            <p class="ab-locations__desc">{loc.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="ab-locations__cta qf-reveal">
+        <a href="/contact" class="qf-btn qf-btn--primary">Start a Project With Us
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  /* ===== HERO ===== */
+  .ab-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--qf-surface);
+    background-image: var(--qf-gradient-mesh);
+    padding-top: 5rem;
+  }
+
+  .ab-hero__glow {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 350px;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.1), transparent 70%);
+    pointer-events: none;
+  }
+
+  .ab-hero__content { text-align: center; position: relative; z-index: 2; }
+
+  .ab-hero__title {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--qf-white);
+    margin-bottom: var(--qf-space-lg);
+    line-height: 1.1;
+  }
+
+  .ab-hero__subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    color: var(--qf-muted);
+    max-width: 620px;
+    margin-inline: auto;
+    line-height: 1.8;
+  }
+
+  /* ===== STORY ===== */
+  .ab-story__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--qf-space-4xl);
+    align-items: center;
+  }
+
+  .ab-story__para {
+    font-size: 1rem;
+    color: var(--qf-muted);
+    line-height: 1.8;
+    margin-bottom: var(--qf-space-lg);
+  }
+
+  .ab-story__highlight {
+    display: flex;
+    align-items: center;
+    gap: var(--qf-space-lg);
+    padding: var(--qf-space-xl);
+    margin-top: var(--qf-space-lg);
+  }
+
+  .ab-story__highlight-num {
+    font-family: var(--qf-font-heading);
+    font-size: 2.5rem;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .ab-story__highlight-text {
+    font-size: 0.95rem;
+    color: var(--qf-muted);
+    line-height: 1.5;
+  }
+
+  .ab-story__visual {
+    position: relative;
+    height: 400px;
+  }
+
+  .ab-story__shape {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .ab-story__shape--1 {
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(108,99,255,0.15), transparent);
+    top: 10%; left: 20%;
+  }
+
+  .ab-story__shape--2 {
+    width: 150px; height: 150px;
+    background: radial-gradient(circle, rgba(0,212,170,0.12), transparent);
+    top: 40%; right: 10%;
+  }
+
+  .ab-story__shape--3 {
+    width: 100px; height: 100px;
+    border: 2px solid var(--qf-border);
+    top: 60%; left: 10%;
+  }
+
+  .ab-story__shape--4 {
+    width: 250px; height: 250px;
+    border: 1px solid var(--qf-border);
+    top: 5%; right: 5%;
+    border-radius: var(--qf-radius-lg);
+    transform: rotate(15deg);
+  }
+
+  /* ===== VALUES ===== */
+  .ab-values__header { text-align: center; margin-bottom: var(--qf-space-3xl); }
+  .ab-values__header .qf-section-label { justify-content: center; }
+
+  .ab-values__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--qf-space-xl);
+  }
+
+  .ab-values__card {
+    padding: var(--qf-space-2xl);
+    text-align: center;
+  }
+
+  .ab-values__icon {
+    width: 56px; height: 56px;
+    display: flex; align-items: center; justify-content: center;
+    margin-inline: auto;
+    margin-bottom: var(--qf-space-lg);
+    background: rgba(108,99,255,0.08);
+    border-radius: var(--qf-radius-md);
+  }
+
+  .ab-values__card-title {
+    font-size: 1.1rem; font-weight: 700; color: var(--qf-white);
+    margin-bottom: var(--qf-space-sm);
+  }
+
+  .ab-values__card-desc { font-size: 0.875rem; color: var(--qf-muted); line-height: 1.7; }
+
+  /* ===== TEAM ===== */
+  .ab-team__header { text-align: center; margin-bottom: var(--qf-space-3xl); }
+  .ab-team__header .qf-section-label { justify-content: center; }
+  .ab-team__header .qf-section-subtitle { margin-inline: auto; }
+
+  .ab-team__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--qf-space-xl);
+  }
+
+  .ab-team__card {
+    padding: var(--qf-space-2xl);
+    text-align: center;
+  }
+
+  .ab-team__avatar {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--avatar-color), rgba(108,99,255,0.3));
+    display: flex; align-items: center; justify-content: center;
+    margin-inline: auto;
+    margin-bottom: var(--qf-space-lg);
+    border: 2px solid var(--qf-border);
+  }
+
+  .ab-team__initials {
+    font-family: var(--qf-font-heading);
+    font-size: 1.3rem; font-weight: 800; color: var(--qf-white);
+  }
+
+  .ab-team__name {
+    font-size: 1.1rem; font-weight: 700; color: var(--qf-white);
+    margin-bottom: 0.25rem;
+  }
+
+  .ab-team__role {
+    font-size: 0.8rem; color: var(--qf-accent); font-weight: 600;
+    display: block; margin-bottom: var(--qf-space-md);
+    letter-spacing: 0.02em;
+  }
+
+  .ab-team__desc { font-size: 0.85rem; color: var(--qf-muted); line-height: 1.7; }
+
+  /* ===== WHY ===== */
+  .ab-why__header { text-align: center; margin-bottom: var(--qf-space-3xl); }
+  .ab-why__header .qf-section-label { justify-content: center; }
+
+  .ab-why__list {
+    max-width: 720px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--qf-space-xl);
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .ab-why__list::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--qf-gradient);
+    opacity: 0.3;
+    border-radius: 2px;
+  }
+
+  .ab-why__item {
+    display: flex;
+    gap: var(--qf-space-lg);
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .ab-why__item::before {
+    content: '';
+    position: absolute;
+    left: -2.35rem;
+    top: 0.6rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--qf-gradient);
+  }
+
+  .ab-why__num {
+    font-family: var(--qf-font-heading);
+    font-size: 1.5rem; font-weight: 900;
+    background: var(--qf-gradient-text);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+
+  .ab-why__item-title { font-size: 1.1rem; font-weight: 700; color: var(--qf-white); margin-bottom: 0.25rem; }
+  .ab-why__item-desc { font-size: 0.9rem; color: var(--qf-muted); line-height: 1.7; }
+
+  /* ===== LOCATIONS ===== */
+  .ab-locations__header { text-align: center; margin-bottom: var(--qf-space-3xl); }
+  .ab-locations__header .qf-section-label { justify-content: center; }
+
+  .ab-locations__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--qf-space-lg);
+  }
+
+  .ab-locations__card { padding: var(--qf-space-xl); }
+  .ab-locations__card-top { display: flex; align-items: center; gap: 0.5rem; margin-bottom: var(--qf-space-sm); flex-wrap: wrap; }
+  .ab-locations__name { font-size: 1rem; font-weight: 700; color: var(--qf-white); }
+
+  .ab-locations__tag {
+    font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em;
+    padding: 0.15rem 0.5rem; background: var(--qf-gradient);
+    border-radius: var(--qf-radius-full); color: white; text-transform: uppercase;
+  }
+
+  .ab-locations__desc { font-size: 0.8rem; color: var(--qf-muted); line-height: 1.6; }
+
+  .ab-locations__cta { text-align: center; margin-top: var(--qf-space-3xl); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .ab-values__grid { grid-template-columns: repeat(2, 1fr); }
+    .ab-team__grid { grid-template-columns: repeat(2, 1fr); }
+    .ab-locations__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .ab-story__grid { grid-template-columns: 1fr; }
+    .ab-story__visual { height: 250px; }
+    .ab-locations__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .ab-values__grid { grid-template-columns: 1fr; }
+    .ab-team__grid { grid-template-columns: 1fr; }
+    .ab-locations__grid { grid-template-columns: 1fr; }
+    .ab-story__highlight { flex-direction: column; text-align: center; }
+  }
+</style>

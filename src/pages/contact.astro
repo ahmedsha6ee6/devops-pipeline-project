@@ -1,0 +1,500 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import RocketCursor from '../components/RocketCursor.astro';
+import '../styles/global.css';
+
+const faqs = [
+  { q: 'How long does a typical web development project take?', a: 'Most projects take 4-8 weeks depending on complexity. We provide a detailed timeline during our initial consultation.' },
+  { q: 'What industries do you specialize in?', a: 'We serve all industries including real estate, e-commerce, healthcare, education, hospitality, architecture, interior design, and more. Our solutions are tailored to your specific industry needs.' },
+  { q: 'Do you provide ongoing support after launch?', a: 'Absolutely! We offer ongoing maintenance, updates, performance monitoring, and optimization services to ensure your digital presence continues to grow.' },
+  { q: 'What is your pricing structure?', a: 'Every project is unique, and our pricing reflects that. We provide custom quotes based on your specific requirements, goals, and timeline. Contact us for a free consultation.' },
+  { q: "Can you help improve our existing website's SEO?", a: 'Yes! We offer standalone SEO services including audits, keyword research, on-page optimization, technical SEO, and content strategy to boost your search rankings.' },
+  { q: 'Do you offer AI video creation services?', a: 'Yes! Our AI Video Creation service uses cutting-edge AI technology to produce high-quality marketing videos at scale, perfect for product demos, social media content, and brand storytelling.' },
+];
+
+const serviceOptions = [
+  'Web Development', 'SEO Optimization', 'Social Media Marketing',
+  'Video Production', 'AI Video Creation', 'Digital Marketing',
+  'Mobile App Development', 'AI-Powered Solutions', 'Other',
+];
+
+const budgetOptions = [
+  'Under ₹50,000', '₹50,000 - ₹1,00,000', '₹1,00,000 - ₹3,00,000',
+  '₹3,00,000 - ₹5,00,000', '₹5,00,000+',
+];
+---
+
+<BaseLayout
+  title="Contact CloudWorks Agency | Get a Free Consultation - Web Development & Marketing Agency Tech City"
+  description="Contact CloudWorks Agency for expert web development, digital marketing, SEO, and AI solutions. Get a free consultation. Call +1 (555) 123-4567 or email info@CloudWorksstudio.com. Based in Tech City, serving all of India."
+>
+  <RocketCursor slot="cursor" />
+  <Navbar slot="navbar" />
+
+  <!-- ===== HERO ===== -->
+  <section class="ct-hero" id="ct-hero">
+    <div class="ct-hero__glow" aria-hidden="true"></div>
+    <div class="qf-container ct-hero__content qf-reveal">
+      <span class="qf-section-label">Get in Touch</span>
+      <h1 class="ct-hero__title">Let's Build Something<br/><span class="qf-gradient-text">Extraordinary</span></h1>
+      <p class="ct-hero__subtitle">Ready to transform your digital presence? We'd love to hear about your project.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT GRID ===== -->
+  <section class="qf-section ct-grid-section" id="ct-grid">
+    <div class="qf-container">
+      <div class="ct-grid">
+        <!-- FORM -->
+        <div class="ct-form qf-glass-card qf-reveal">
+          <h2 class="ct-form__title">Send Us a Message</h2>
+          <form id="ct-contact-form" class="ct-form__form" novalidate>
+            <div class="ct-form__row">
+              <div class="ct-form__group">
+                <label for="ct-name" class="ct-form__label">Full Name *</label>
+                <input type="text" id="ct-name" name="name" class="ct-form__input" placeholder="John Doe" required />
+                <span class="ct-form__error" id="ct-name-error"></span>
+              </div>
+              <div class="ct-form__group">
+                <label for="ct-email" class="ct-form__label">Email Address *</label>
+                <input type="email" id="ct-email" name="email" class="ct-form__input" placeholder="john@example.com" required />
+                <span class="ct-form__error" id="ct-email-error"></span>
+              </div>
+            </div>
+            <div class="ct-form__row">
+              <div class="ct-form__group">
+                <label for="ct-phone" class="ct-form__label">Phone Number</label>
+                <input type="tel" id="ct-phone" name="phone" class="ct-form__input" placeholder="+91 9876543210" />
+              </div>
+              <div class="ct-form__group">
+                <label for="ct-service" class="ct-form__label">Service Interested In</label>
+                <select id="ct-service" name="service" class="ct-form__input ct-form__select">
+                  <option value="" disabled selected>Select a service</option>
+                  {serviceOptions.map((s) => <option value={s}>{s}</option>)}
+                </select>
+              </div>
+            </div>
+            <div class="ct-form__group">
+              <label for="ct-budget" class="ct-form__label">Budget Range</label>
+              <select id="ct-budget" name="budget" class="ct-form__input ct-form__select">
+                <option value="" disabled selected>Select your budget</option>
+                {budgetOptions.map((b) => <option value={b}>{b}</option>)}
+              </select>
+            </div>
+            <div class="ct-form__group">
+              <label for="ct-message" class="ct-form__label">Project Details</label>
+              <textarea id="ct-message" name="message" class="ct-form__input ct-form__textarea" rows="4" placeholder="Tell us about your project..."></textarea>
+            </div>
+            <button type="submit" class="qf-btn qf-btn--primary ct-form__submit">
+              Send Message
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+            <div class="ct-form__success" id="ct-success" style="display:none;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <p>Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.</p>
+            </div>
+          </form>
+        </div>
+
+        <!-- INFO -->
+        <div class="ct-info qf-reveal-right">
+          <div class="ct-info__card qf-glass-card">
+            <div class="ct-info__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <h3 class="ct-info__title">Email Us</h3>
+              <a href="mailto:info@CloudWorksstudio.com" class="ct-info__value">info@CloudWorksstudio.com</a>
+              <p class="ct-info__note">We reply within 24 hours</p>
+            </div>
+          </div>
+
+          <div class="ct-info__card qf-glass-card">
+            <div class="ct-info__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent2)" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <h3 class="ct-info__title">Call / WhatsApp</h3>
+              <a href="tel:+15551234567" class="ct-info__value">+91 924 301 5433</a>
+              <p class="ct-info__note">Mon – Sat, 9 AM – 6 PM IST</p>
+              <a href="https://wa.me/15551234567" target="_blank" rel="noopener" class="ct-info__whatsapp">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                WhatsApp Us
+              </a>
+            </div>
+          </div>
+
+          <div class="ct-info__card qf-glass-card">
+            <div class="ct-info__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--qf-accent)" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h3 class="ct-info__title">Visit Us</h3>
+              <span class="ct-info__value">Tech City, Global</span>
+              <p class="ct-info__note">Serving Global locations</p>
+            </div>
+          </div>
+
+          <div class="ct-info__social">
+            <a href="https://twitter.com/CloudWorksst" target="_blank" rel="noopener" class="ct-info__social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/quantumfram" target="_blank" rel="noopener" class="ct-info__social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/CloudWorksstudio" target="_blank" rel="noopener" class="ct-info__social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://wa.me/15551234567" target="_blank" rel="noopener" class="ct-info__social-link" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAP ===== -->
+  <section class="ct-map" id="ct-map">
+    <div class="ct-map__embed">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d234062.8463997647!2d77.25513970839482!3d23.25993855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd68fbd%3A0x2155716d572d4f8!2sTech City%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1"
+        width="100%"
+        height="400"
+        style="border:0; filter: invert(0.9) hue-rotate(180deg) saturate(0.3) brightness(0.6);"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="CloudWorks Agency Location - Tech City"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="qf-section ct-faq" id="ct-faq">
+    <div class="qf-container">
+      <div class="ct-faq__header qf-reveal">
+        <span class="qf-section-label">Frequently Asked Questions</span>
+        <h2 class="qf-section-title">Common Questions</h2>
+      </div>
+      <div class="ct-faq__list">
+        {faqs.map((faq, i) => (
+          <div class="ct-faq__item qf-glass-card qf-reveal" data-faq={i}>
+            <button class="ct-faq__question" aria-expanded="false">
+              <span>{faq.q}</span>
+              <svg class="ct-faq__chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="ct-faq__answer">
+              <p>{faq.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="ct-cta" id="ct-cta">
+    <div class="ct-cta__glow" aria-hidden="true"></div>
+    <div class="qf-container ct-cta__content qf-reveal">
+      <h2 class="ct-cta__title">Prefer a <span class="qf-gradient-text">Quick Call?</span></h2>
+      <p class="ct-cta__subtitle">Schedule a free 30-minute consultation with our team.</p>
+      <div class="ct-cta__buttons">
+        <a href="tel:+15551234567" class="qf-btn qf-btn--primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call Now
+        </a>
+        <a href="https://wa.me/15551234567" target="_blank" rel="noopener" class="qf-btn qf-btn--outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<!-- Form Validation & FAQ Scripts -->
+<script>
+  // === FORM VALIDATION ===
+  const form = document.getElementById('ct-contact-form') as HTMLFormElement;
+  const success = document.getElementById('ct-success');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    // Name
+    const name = document.getElementById('ct-name') as HTMLInputElement;
+    const nameError = document.getElementById('ct-name-error');
+    if (!name.value.trim()) {
+      nameError!.textContent = 'Please enter your name';
+      name.classList.add('ct-form__input--error');
+      valid = false;
+    } else {
+      nameError!.textContent = '';
+      name.classList.remove('ct-form__input--error');
+    }
+
+    // Email
+    const email = document.getElementById('ct-email') as HTMLInputElement;
+    const emailError = document.getElementById('ct-email-error');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value)) {
+      emailError!.textContent = 'Please enter a valid email';
+      email.classList.add('ct-form__input--error');
+      valid = false;
+    } else {
+      emailError!.textContent = '';
+      email.classList.remove('ct-form__input--error');
+    }
+
+    if (valid) {
+      form.style.display = 'none';
+      if (success) success.style.display = 'flex';
+    }
+  });
+
+  // Clear errors on input
+  document.querySelectorAll('.ct-form__input').forEach(input => {
+    input.addEventListener('input', () => {
+      input.classList.remove('ct-form__input--error');
+      const errorEl = input.parentElement?.querySelector('.ct-form__error');
+      if (errorEl) errorEl.textContent = '';
+    });
+  });
+
+  // === FAQ ACCORDION ===
+  document.querySelectorAll('.ct-faq__question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.ct-faq__item');
+      const isOpen = item?.classList.contains('ct-faq__item--open');
+
+      // Close all
+      document.querySelectorAll('.ct-faq__item').forEach(el => {
+        el.classList.remove('ct-faq__item--open');
+        el.querySelector('.ct-faq__question')?.setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle current
+      if (!isOpen) {
+        item?.classList.add('ct-faq__item--open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+<style>
+  /* ===== HERO ===== */
+  .ct-hero {
+    position: relative; min-height: 50vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; background: var(--qf-surface);
+    background-image: var(--qf-gradient-mesh); padding-top: 5rem;
+  }
+  .ct-hero__glow {
+    position: absolute; top: 30%; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 350px;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.1), transparent 70%);
+    pointer-events: none;
+  }
+  .ct-hero__content { text-align: center; position: relative; z-index: 2; }
+  .ct-hero__title {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900; color: var(--qf-white);
+    margin-bottom: var(--qf-space-lg); line-height: 1.1;
+  }
+  .ct-hero__subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    color: var(--qf-muted); max-width: 580px;
+    margin-inline: auto; line-height: 1.8;
+  }
+
+  /* ===== CONTACT GRID ===== */
+  .ct-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--qf-space-2xl);
+    align-items: start;
+  }
+
+  /* --- FORM --- */
+  .ct-form { padding: var(--qf-space-2xl); }
+  .ct-form__title {
+    font-size: 1.3rem; font-weight: 800;
+    color: var(--qf-white); margin-bottom: var(--qf-space-xl);
+  }
+  .ct-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--qf-space-md); }
+  .ct-form__group { margin-bottom: var(--qf-space-md); }
+  .ct-form__label {
+    display: block; font-size: 0.8rem; font-weight: 600;
+    color: var(--qf-text); margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+  }
+  .ct-form__input {
+    width: 100%; padding: 0.75rem 1rem;
+    background: rgba(10,15,30,0.6);
+    border: 1px solid var(--qf-border);
+    border-radius: var(--qf-radius-sm);
+    color: var(--qf-text);
+    font-family: var(--qf-font-body);
+    font-size: 0.9rem;
+    transition: border-color var(--qf-duration) var(--qf-ease), box-shadow var(--qf-duration) var(--qf-ease);
+    outline: none;
+  }
+  .ct-form__input::placeholder { color: var(--qf-muted); opacity: 0.5; }
+  .ct-form__input:focus {
+    border-color: var(--qf-accent);
+    box-shadow: 0 0 0 3px rgba(108,99,255,0.15);
+  }
+  .ct-form__input--error {
+    border-color: #f5576c !important;
+    box-shadow: 0 0 0 3px rgba(245,87,108,0.15) !important;
+  }
+  .ct-form__error {
+    font-size: 0.75rem; color: #f5576c;
+    margin-top: 0.25rem; display: block;
+    min-height: 1rem;
+  }
+  .ct-form__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238892B0' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+  .ct-form__textarea { resize: vertical; min-height: 100px; }
+  .ct-form__submit { width: 100%; margin-top: var(--qf-space-sm); }
+  .ct-form__success {
+    display: flex; align-items: flex-start; gap: var(--qf-space-md);
+    padding: var(--qf-space-xl);
+    background: rgba(0,212,170,0.08);
+    border: 1px solid rgba(0,212,170,0.3);
+    border-radius: var(--qf-radius-md);
+    margin-top: var(--qf-space-md);
+  }
+  .ct-form__success svg { flex-shrink: 0; margin-top: 2px; }
+  .ct-form__success p { font-size: 0.9rem; color: var(--qf-text); line-height: 1.6; }
+
+  /* --- INFO --- */
+  .ct-info { display: flex; flex-direction: column; gap: var(--qf-space-lg); }
+  .ct-info__card {
+    padding: var(--qf-space-xl);
+    display: flex; gap: var(--qf-space-lg);
+    align-items: flex-start;
+    border-left: 3px solid transparent;
+    border-image: var(--qf-gradient) 1;
+  }
+  .ct-info__icon {
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(108,99,255,0.08);
+    border-radius: var(--qf-radius-sm);
+    flex-shrink: 0;
+  }
+  .ct-info__title {
+    font-size: 0.95rem; font-weight: 700;
+    color: var(--qf-white); margin-bottom: 0.2rem;
+  }
+  .ct-info__value {
+    font-size: 0.875rem; color: var(--qf-text);
+    display: block; margin-bottom: 0.2rem;
+    transition: color var(--qf-duration) var(--qf-ease);
+  }
+  a.ct-info__value:hover { color: var(--qf-accent); }
+  .ct-info__note { font-size: 0.75rem; color: var(--qf-muted); }
+  .ct-info__whatsapp {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    font-size: 0.75rem; font-weight: 600;
+    color: #25D366; margin-top: 0.4rem;
+    transition: opacity var(--qf-duration);
+  }
+  .ct-info__whatsapp:hover { opacity: 0.8; }
+
+  .ct-info__social {
+    display: flex; gap: 0.6rem; padding-top: var(--qf-space-sm);
+  }
+  .ct-info__social-link {
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: var(--qf-radius-sm);
+    border: 1px solid var(--qf-border);
+    color: var(--qf-muted);
+    transition: all var(--qf-duration) var(--qf-ease);
+  }
+  .ct-info__social-link:hover {
+    color: var(--qf-accent); border-color: var(--qf-accent);
+    background: rgba(108,99,255,0.1);
+  }
+
+  /* ===== MAP ===== */
+  .ct-map { background: var(--qf-primary); }
+  .ct-map__embed { width: 100%; line-height: 0; }
+  .ct-map__embed iframe { width: 100%; }
+
+  /* ===== FAQ ===== */
+  .ct-faq__header { text-align: center; margin-bottom: var(--qf-space-3xl); }
+  .ct-faq__header .qf-section-label { justify-content: center; }
+  .ct-faq__list { max-width: 800px; margin-inline: auto; display: flex; flex-direction: column; gap: var(--qf-space-md); }
+  .ct-faq__item { overflow: hidden; }
+  .ct-faq__question {
+    width: 100%; padding: var(--qf-space-lg) var(--qf-space-xl);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--qf-space-md);
+    font-family: var(--qf-font-heading);
+    font-size: 0.95rem; font-weight: 600;
+    color: var(--qf-text); text-align: left;
+    transition: color var(--qf-duration);
+  }
+  .ct-faq__question:hover { color: var(--qf-accent); }
+  .ct-faq__chevron {
+    flex-shrink: 0;
+    transition: transform 0.3s var(--qf-ease);
+    color: var(--qf-muted);
+  }
+  .ct-faq__item--open .ct-faq__chevron { transform: rotate(180deg); }
+  .ct-faq__answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s var(--qf-ease), padding 0.3s var(--qf-ease);
+    padding: 0 var(--qf-space-xl);
+  }
+  .ct-faq__item--open .ct-faq__answer {
+    max-height: 300px;
+    padding: 0 var(--qf-space-xl) var(--qf-space-lg);
+  }
+  .ct-faq__answer p { font-size: 0.9rem; color: var(--qf-muted); line-height: 1.8; }
+
+  /* ===== CTA ===== */
+  .ct-cta {
+    position: relative; padding: var(--qf-space-5xl) 0;
+    background: var(--qf-primary); text-align: center; overflow: hidden;
+  }
+  .ct-cta__glow {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.1), transparent 70%);
+    pointer-events: none;
+  }
+  .ct-cta__content { position: relative; z-index: 2; }
+  .ct-cta__title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800; color: var(--qf-white);
+    margin-bottom: var(--qf-space-md);
+  }
+  .ct-cta__subtitle {
+    font-size: 1.1rem; color: var(--qf-muted);
+    margin-bottom: var(--qf-space-2xl);
+    max-width: 500px; margin-inline: auto;
+  }
+  .ct-cta__buttons { display: flex; gap: var(--qf-space-md); justify-content: center; flex-wrap: wrap; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .ct-grid { grid-template-columns: 1fr; }
+    .ct-form__row { grid-template-columns: 1fr; }
+  }
+</style>
