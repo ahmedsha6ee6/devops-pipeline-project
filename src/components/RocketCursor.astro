@@ -1,0 +1,206 @@
+<!-- Rocket Cursor for Desktop + Touch Ripple for Mobile -->
+<div class="qf-cursor" id="qf-cursor">
+  <svg class="qf-cursor__rocket" viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g transform="rotate(-45, 16, 16)">
+      <!-- Rocket body -->
+      <path d="M16 3C16 3 10 10 10 20C10 22 12 24 16 24C20 24 22 22 22 20C22 10 16 3 16 3Z" fill="url(#rocketGrad)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+      <!-- Rocket window -->
+      <circle cx="16" cy="14" r="2.5" fill="#0A0F1E" stroke="rgba(0,212,170,0.6)" stroke-width="0.5"/>
+      <circle cx="16" cy="14" r="1.2" fill="rgba(0,212,170,0.3)"/>
+      <!-- Left fin -->
+      <path d="M10 20L7 24L10 23Z" fill="#6C63FF" opacity="0.8"/>
+      <!-- Right fin -->
+      <path d="M22 20L25 24L22 23Z" fill="#6C63FF" opacity="0.8"/>
+      <!-- Flame -->
+      <path d="M14 24Q16 30 18 24Q16 27 14 24Z" fill="#00D4AA" opacity="0.9">
+        <animate attributeName="d" values="M14 24Q16 30 18 24Q16 27 14 24Z;M13 24Q16 32 19 24Q16 28 13 24Z;M14 24Q16 30 18 24Q16 27 14 24Z" dur="0.4s" repeatCount="indefinite"/>
+      </path>
+      <path d="M15 24Q16 28 17 24Q16 26 15 24Z" fill="#FFD700" opacity="0.8">
+        <animate attributeName="d" values="M15 24Q16 28 17 24Q16 26 15 24Z;M14.5 24Q16 29 17.5 24Q16 27 14.5 24Z;M15 24Q16 28 17 24Q16 26 15 24Z" dur="0.3s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <defs>
+      <linearGradient id="rocketGrad" x1="16" y1="3" x2="16" y2="24" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#E8E8F0"/>
+        <stop offset="100%" stop-color="#8892B0"/>
+      </linearGradient>
+    </defs>
+  </svg>
+  <div class="qf-cursor__trail" id="qf-cursor-trail"></div>
+</div>
+
+<!-- Touch ripple container -->
+<div class="qf-touch-ripple-container" id="qf-touch-container"></div>
+
+<script>
+  // Detect touch device
+  const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || window.matchMedia('(pointer: coarse)').matches;
+
+  if (!isTouchDevice) {
+    // === ROCKET CURSOR (Desktop) ===
+    const cursor = document.getElementById('qf-cursor') as HTMLElement;
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+
+    document.body.style.cursor = 'none';
+
+    // Add cursor:none to all interactive elements
+    const style = document.createElement('style');
+    style.textContent = 'a, button, input, textarea, select, [role="button"] { cursor: none !important; }';
+    document.head.appendChild(style);
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+      const dx = mouseX - cursorX;
+      const dy = mouseY - cursorY;
+      cursorX += dx * 0.15;
+      cursorY += dy * 0.15;
+
+      if (cursor) {
+        cursor.style.transform = `translate(${cursorX - 16}px, ${cursorY - 16}px)`;
+        cursor.style.opacity = '1';
+      }
+
+      requestAnimationFrame(animateCursor);
+    }
+
+    // Spawn trail particles
+    function spawnTrail(x: number, y: number) {
+      const particle = document.createElement('div');
+      particle.className = 'qf-cursor__particle';
+      particle.style.left = `${x}px`;
+      particle.style.top = `${y}px`;
+      document.body.appendChild(particle);
+      setTimeout(() => particle.remove(), 600);
+    }
+
+    let trailCounter = 0;
+    document.addEventListener('mousemove', (e) => {
+      trailCounter++;
+      if (trailCounter % 3 === 0) {
+        spawnTrail(e.clientX, e.clientY);
+      }
+    });
+
+    // Scale on hover
+    document.querySelectorAll('a, button, [role="button"]').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        if (cursor) cursor.classList.add('qf-cursor--hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        if (cursor) cursor.classList.remove('qf-cursor--hover');
+      });
+    });
+
+    if (cursor) {
+      cursor.style.display = 'block';
+    }
+    requestAnimationFrame(animateCursor);
+
+  } else {
+    // === TOUCH RIPPLE (Mobile) ===
+    const container = document.getElementById('qf-touch-container');
+
+    document.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+      if (!touch || !container) return;
+
+      const ripple = document.createElement('div');
+      ripple.className = 'qf-touch-ripple';
+      ripple.style.left = `${touch.clientX}px`;
+      ripple.style.top = `${touch.clientY}px`;
+      container.appendChild(ripple);
+
+      setTimeout(() => ripple.remove(), 700);
+    }, { passive: true });
+  }
+</script>
+
+<style>
+  .qf-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    will-change: transform;
+  }
+
+  .qf-cursor__rocket {
+    filter: drop-shadow(0 0 8px rgba(108, 99, 255, 0.4));
+    transition: transform 0.2s ease;
+  }
+
+  .qf-cursor--hover .qf-cursor__rocket {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 16px rgba(0, 212, 170, 0.6));
+  }
+
+  .qf-cursor__trail {
+    display: none;
+  }
+
+  :global(.qf-cursor__particle) {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: var(--qf-accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    opacity: 0.6;
+    animation: qf-particle-fade 0.6s ease-out forwards;
+  }
+
+  @keyframes qf-particle-fade {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+
+  /* Touch Ripple */
+  .qf-touch-ripple-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99998;
+    overflow: hidden;
+  }
+
+  :global(.qf-touch-ripple) {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(108,99,255,0.4), rgba(0,212,170,0.2), transparent);
+    transform: translate(-50%, -50%) scale(0);
+    animation: qf-ripple-expand 0.7s ease-out forwards;
+    pointer-events: none;
+  }
+
+  @keyframes qf-ripple-expand {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(30);
+      opacity: 0;
+    }
+  }
+</style>

@@ -1,0 +1,189 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  keywords?: string;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = '/og-image.jpg',
+  keywords = 'web development Tech City, digital marketing agency Tech City, SEO services Tech City, marketing agency for architects, digital marketing for interior designers, website design for architecture firms, SEO for interior design companies, CloudWorks Agency, e-commerce development Tech City, social media marketing agency, AI video creation, web design company India',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en-IN" itemscope itemtype="https://schema.org/WebPage">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Primary Meta -->
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <meta name="author" content="CloudWorks Agency" />
+  <meta name="publisher" content="CloudWorks Agency" />
+  <meta name="copyright" content={`© ${new Date().getFullYear()} CloudWorks Agency. All rights reserved.`} />
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#12193C" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Crawlers -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow" />
+
+  <!-- Geo -->
+  <meta name="geo.region" content="IN-MP" />
+  <meta name="geo.placename" content="Tech City" />
+  <meta name="geo.position" content="23.2599;77.4126" />
+  <meta name="ICBM" content="23.2599, 77.4126" />
+
+  <!-- Contact -->
+  <meta name="contact" content="info@CloudWorksstudio.com" />
+  <meta name="reply-to" content="info@CloudWorksstudio.com" />
+
+  <!-- Classification -->
+  <meta name="category" content="Web Development, Digital Marketing, Technology, Marketing Agency for Architects, Interior Design Marketing" />
+  <meta name="coverage" content="Worldwide" />
+  <meta name="distribution" content="Global" />
+  <meta name="rating" content="General" />
+  <meta name="revisit-after" content="7 days" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CloudWorks Agency" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@CloudWorksst" />
+  <meta name="twitter:creator" content="@CloudWorksst" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Canonical -->
+  <link rel="canonical" href={canonical} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Global Styles -->
+  <style is:global>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+  </style>
+
+  <!-- JSON-LD Organization -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CloudWorks Agency",
+    "url": "https://CloudWorksstudio.com",
+    "logo": "https://CloudWorksstudio.com/favicon.svg",
+    "description": "Leading Web Development & Digital Marketing Agency in Tech City. Expert website design for architects, interior designers, and businesses across India.",
+    "email": "info@CloudWorksstudio.com",
+    "telephone": "+15551234567",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tech City",
+      "addressRegion": "Madhya Pradesh",
+      "addressCountry": "IN"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Tech City" },
+      { "@type": "City", "name": "Indore" },
+      { "@type": "City", "name": "Jabalpur" },
+      { "@type": "City", "name": "Gwalior" },
+      { "@type": "Country", "name": "India" }
+    ],
+    "sameAs": [
+      "https://twitter.com/CloudWorksst",
+      "https://www.linkedin.com/company/quantumfram"
+    ],
+    "knowsAbout": [
+      "Web Development",
+      "Digital Marketing",
+      "SEO Optimization",
+      "Marketing for Architects",
+      "Interior Design Marketing",
+      "AI Video Creation",
+      "E-commerce Development",
+      "Social Media Marketing"
+    ]
+  })} />
+
+  <!-- JSON-LD LocalBusiness -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "CloudWorks Agency",
+    "image": "https://CloudWorksstudio.com/og-image.jpg",
+    "url": "https://CloudWorksstudio.com",
+    "telephone": "+15551234567",
+    "email": "info@CloudWorksstudio.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tech City",
+      "addressRegion": "Madhya Pradesh",
+      "postalCode": "462001",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 23.2599,
+      "longitude": 77.4126
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  })} />
+</head>
+<body>
+  <slot name="cursor" />
+  <header>
+    <slot name="navbar" />
+  </header>
+  <main>
+    <slot />
+  </main>
+  <footer>
+    <slot name="footer" />
+  </footer>
+
+  <!-- Scroll Reveal Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.qf-reveal, .qf-reveal-left, .qf-reveal-right');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('qf-visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      reveals.forEach((el) => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

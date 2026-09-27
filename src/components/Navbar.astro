@@ -1,0 +1,292 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/contact', label: 'Contact' },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="qf-navbar" id="qf-navbar">
+  <div class="qf-navbar__inner qf-container--lg">
+    <a href="/" class="qf-navbar__logo" aria-label="CloudWorks Agency Home">
+      <span class="qf-navbar__logo-icon">Q</span>
+      <span class="qf-navbar__logo-text">Quantum<span class="qf-navbar__logo-accent">Frame</span></span>
+    </a>
+
+    <ul class="qf-navbar__links" id="qf-nav-links">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={['qf-navbar__link', { 'qf-navbar__link--active': currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) }]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <a href="/contact" class="qf-navbar__cta qf-btn qf-btn--primary">Get Started</a>
+
+    <button class="qf-navbar__toggle" id="qf-nav-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+      <span class="qf-navbar__toggle-bar"></span>
+      <span class="qf-navbar__toggle-bar"></span>
+      <span class="qf-navbar__toggle-bar"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="qf-navbar__drawer" id="qf-nav-drawer">
+    <ul class="qf-navbar__drawer-links">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={['qf-navbar__drawer-link', { 'qf-navbar__drawer-link--active': currentPath === link.href }]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a href="/contact" class="qf-btn qf-btn--primary" style="width:100%;margin-top:1rem;">Get Started</a>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('qf-nav-toggle');
+  const drawer = document.getElementById('qf-nav-drawer');
+  const navbar = document.getElementById('qf-navbar');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = drawer?.classList.toggle('qf-navbar__drawer--open');
+    toggle.classList.toggle('qf-navbar__toggle--active');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close on link click
+  drawer?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      drawer.classList.remove('qf-navbar__drawer--open');
+      toggle?.classList.remove('qf-navbar__toggle--active');
+      toggle?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Scroll effect
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY > 80) {
+      navbar?.classList.add('qf-navbar--scrolled');
+    } else {
+      navbar?.classList.remove('qf-navbar--scrolled');
+    }
+    lastScroll = scrollY;
+  }, { passive: true });
+</script>
+
+<style>
+  .qf-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.4s var(--qf-ease);
+    background: transparent;
+  }
+
+  .qf-navbar--scrolled {
+    background: var(--qf-glass-strong);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--qf-border);
+    padding: 0.6rem 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .qf-navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--qf-container-lg);
+    margin-inline: auto;
+    padding-inline: var(--qf-space-lg);
+  }
+
+  .qf-navbar__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    z-index: 10;
+  }
+
+  .qf-navbar__logo-icon {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--qf-gradient);
+    border-radius: var(--qf-radius-sm);
+    font-family: var(--qf-font-heading);
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: white;
+  }
+
+  .qf-navbar__logo-text {
+    font-family: var(--qf-font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--qf-white);
+    letter-spacing: -0.02em;
+  }
+
+  .qf-navbar__logo-accent {
+    background: var(--qf-gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .qf-navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .qf-navbar__link {
+    font-family: var(--qf-font-heading);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--qf-muted);
+    transition: color var(--qf-duration) var(--qf-ease);
+    position: relative;
+    padding: 0.25rem 0;
+  }
+
+  .qf-navbar__link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--qf-gradient);
+    border-radius: 2px;
+    transition: width var(--qf-duration) var(--qf-ease);
+  }
+
+  .qf-navbar__link:hover,
+  .qf-navbar__link--active {
+    color: var(--qf-white);
+  }
+
+  .qf-navbar__link:hover::after,
+  .qf-navbar__link--active::after {
+    width: 100%;
+  }
+
+  .qf-navbar__cta {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+  }
+
+  .qf-navbar__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+    z-index: 10;
+  }
+
+  .qf-navbar__toggle-bar {
+    width: 24px;
+    height: 2px;
+    background: var(--qf-text);
+    border-radius: 2px;
+    transition: all 0.3s var(--qf-ease);
+  }
+
+  .qf-navbar__toggle--active .qf-navbar__toggle-bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .qf-navbar__toggle--active .qf-navbar__toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .qf-navbar__toggle--active .qf-navbar__toggle-bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .qf-navbar__drawer {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .qf-navbar__links,
+    .qf-navbar__cta {
+      display: none;
+    }
+
+    .qf-navbar__toggle {
+      display: flex;
+    }
+
+    .qf-navbar__drawer {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 360px;
+      height: 100vh;
+      background: var(--qf-glass-strong);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border-left: 1px solid var(--qf-border);
+      padding: 5rem var(--qf-space-xl) var(--qf-space-xl);
+      transition: right 0.4s var(--qf-ease);
+      overflow-y: auto;
+      z-index: 5;
+    }
+
+    .qf-navbar__drawer--open {
+      right: 0;
+    }
+
+    .qf-navbar__drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .qf-navbar__drawer-link {
+      display: block;
+      padding: 1rem 0;
+      font-family: var(--qf-font-heading);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--qf-muted);
+      border-bottom: 1px solid var(--qf-border);
+      transition: color var(--qf-duration) var(--qf-ease);
+    }
+
+    .qf-navbar__drawer-link:hover,
+    .qf-navbar__drawer-link--active {
+      color: var(--qf-accent);
+    }
+  }
+</style>
